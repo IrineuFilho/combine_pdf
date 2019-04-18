@@ -78,7 +78,9 @@ module CombinePDF
       end
       @parsed = _parse_
       # puts @parsed
-
+      if @parsed[0] == 0
+        @parsed.delete(0)
+      end
       unless (@parsed.select { |i| !i.is_a?(Hash) }).empty?
         # p @parsed.select
         raise ParsingError, 'Unknown PDF parsing error - malformed PDF file?'
